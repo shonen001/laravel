@@ -2,8 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\group;
+use App\Models\contact;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +24,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+         //group::factory(11)->create();
+         //contact::factory(11)->create();
     }
 }
