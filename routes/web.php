@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactServer;
+
+use  App\Models\contact;
+use  App\Models\group;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ContactServer::class,'index']);
+
+
+Route::get('/createNew',[ContactServer::class,'create']);

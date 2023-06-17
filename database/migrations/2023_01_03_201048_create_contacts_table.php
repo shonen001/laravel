@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('idGroup');
             $table->timestamps();
 
-            $table->foreign('idGroup')->references('id')->on('groups')->constrained('groups');
+            $table->foreign('idGroup')->references('id')->on('grops')->constrained('grops');
         });
     }
     /**

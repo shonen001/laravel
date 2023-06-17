@@ -17,10 +17,11 @@ class groupFactory extends Factory
     public function definition()
     {
         return [
-            'group'      => fake()->company(),
-            'syte'       => fake()->city(),
-            'website'    => fake()->domainName(),
-            'email'      => fake()->email(),
+            'group'  =>fake()->company(),
+            'city'   =>fake()->city(),
+            'website'=>fake()->domainName(),
+            'email'  =>fake()->email(),
+
         ];
     }
 }

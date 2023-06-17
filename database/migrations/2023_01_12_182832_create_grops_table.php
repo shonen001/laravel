@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('grops', function (Blueprint $table) {
             $table->id();
             $table->string('Group');
-            $table->string('syte');
+            $table->string('city');
             $table->string('website');
             $table->string('email');
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('grops');
     }
 };

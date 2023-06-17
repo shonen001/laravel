@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class group extends Model {
     use HasFactory;
 
+    protected $table = "grops";
+
 public function contact() {
-    return $this->hasMany(contacts::class,'id');
+    return $this->hasMany(contact::class,'id');
     //'id_Company'
 }
 }
