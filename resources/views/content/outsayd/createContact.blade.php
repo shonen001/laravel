@@ -1,68 +1,98 @@
-<!-- content -->
-<main class="py-5">
-    <div class="container">
-      <div class="row justify-content-md-center">
-        <div class="col-md-8">
-          <div class="card">
-            <div class="card-header card-title">
-              <strong>Contact Details</strong>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group row">
-                    <label for="first_name" class="col-md-3 col-form-label">First Name</label>
-                    <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">Alfred</p>
-                    </div>
-                  </div>
+    <!-- content -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-title">
+                            <strong>Add New Contact</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
 
-                  <div class="form-group row">
-                    <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
-                    <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">Kuhlman</p>
-                    </div>
-                  </div>
+                                    <div class="form-group row">
+                                        <label for="firstName" class="col-md-3 col-form-label">First Name</label>
+                                        <div class="col-md-9">
 
-                  <div class="form-group row">
-                    <label for="email" class="col-md-3 col-form-label">Email</label>
-                    <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">alfred@test.com</p>
-                    </div>
-                  </div>
+                                            <input value="{{ old('firstName') }}" type="text" name="firstName"
+                                                id="firstName"
+                                                class="form-control @error('firstName') is-invalid @enderror">
 
-                  <div class="form-group row">
-                    <label for="phone" class="col-md-3 col-form-label">Phone</label>
-                    <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">+6286767565656</p>
-                    </div>
-                  </div>
+                                            @error('firstName')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
 
-                  <div class="form-group row">
-                    <label for="name" class="col-md-3 col-form-label">Address</label>
-                    <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">Lorem ipsum dolor</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="lastName" class="col-md-3 col-form-label">Last Name</label>
+                                        <div class="col-md-9">
+                                            <input value="{{ old('lastName') }}" type="text" name="lastName"
+                                                id="lastName"
+                                                class="form-control @error('lastName') is-invalid @enderror">
+
+                                            @error('lastName')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-3 col-form-label">Email</label>
+                                        <div class="col-md-9">
+                                            <input value="{{ old('email') }}" type="text" name="email" id="email"
+                                                class="form-control @error('email') is-invalid @enderror">
+                                            @error('email')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="phone" class="col-md-3 col-form-label">Phone</label>
+                                        <div class="col-md-9">
+                                            <input value="{{ old('phone') }}" type="text" name="phone" id="phone"
+                                                class="form-control @error('phone') is-invalid @enderror">
+                                            @error('phone')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="name" class="col-md-3 col-form-label">Address</label>
+                                        <div class="col-md-9">
+                                            <textarea name="address" id="address" rows="3"
+                                                class="form-control @error('address') is-invalid @enderror"> {{ old('address') }}</textarea>
+                                            @error('address')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="company_id" class="col-md-3 col-form-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select name="idGroup" id="idGroup" class="form-control">
+                                                @foreach ($groupsdropbox as $id => $GroupName)
+                                                <option value="{{ $id }}"> {{ $GroupName }} </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-9 offset-md-3">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <a href="index.html" class="btn btn-outline-secondary">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="company_id" class="col-md-3 col-form-label">Company</label>
-                    <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">Company One</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row mb-0">
-                    <div class="col-md-9 offset-md-3">
-                        <a href="#" class="btn btn-info">Edit</a>
-                        <a href="#" class="btn btn-outline-danger">Delete</a>
-                        <a href="index.html" class="btn btn-outline-secondary">Cancel</a>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>

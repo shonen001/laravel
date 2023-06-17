@@ -1,6 +1,7 @@
 @extends('layouts/main')
 @section('content')
-<form method="POST" action="">
-    @include('outsayd/createContact')
-</form>
+    <form  action="{{ route('Contact.Insert') }}" method="POST">
+        @csrf
+        @include('content/outsayd/createContact')
+    </form>
 @endsection

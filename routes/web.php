@@ -18,7 +18,23 @@ use  App\Models\group;
 |
 */
 
-Route::get('/',[ContactServer::class,'index']);
+Route::get('/Contact',[ContactServer::class,'index'])->name('Contact.home');;
 
 
-Route::get('/createNew',[ContactServer::class,'create']);
+ Route::get('/newContact',[ContactServer::class,'PgCreateContact'])->name('Contact.Index');
+Route::post('/newContact',[ContactServer::class,'PgCreateContactInt'])->name('Contact.Insert');
+
+
+
+Route::get('/Contact{id}',[ContactServer::class,'showContact'])->name('Contact.show');
+
+
+
+
+Route::get('/editeContactID={id}',[ContactServer::class,'ShowEditeContact'])->name('Contact.showedite');
+Route::put('/editeContactID={id}',[ContactServer::class,'SbmtEditeContact'])->name('Contact.sbmtedite');
+
+
+Route::delete('/DeletContactID={id}',[ContactServer::class,'deletContact'])->name('Contact.delet');
+
+

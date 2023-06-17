@@ -3,6 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="csrf_token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>My Contact</title>
@@ -10,8 +11,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
     <!-- Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
+
+
+
   </head>
   <body>
     <!-- navbar -->
@@ -28,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
           <ul class="navbar-nav">
             <li class="nav-item"><a href="#" class="nav-link">Companies</a></li>
-            <li class="nav-item active"><a href="#" class="nav-link">Contacts</a></li>
+            <li class="nav-item active"><a href=" {{ route('Contact.home') }}" class="nav-link">Contacts</a></li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mr-2"><a href="#" class="btn btn-outline-secondary">Login</a></li>
@@ -49,9 +54,14 @@
 
     @yield('content')
 
+
+
+
     <script src="assets/js/App.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+
+
   </body>
 </html>
