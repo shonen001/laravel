@@ -8,22 +8,47 @@ use Illuminate\Database\Eloquent\Model;
 class contact extends Model
 {
     use HasFactory;
+    protected $fillable = ['firstName', 'lastName', 'phone', 'email', 'address', 'idGroup'];
 
-    protected $fillable = ['firstName','lastName','phone','email','address','idGroup'];
 
-       //'first_name'=> 'required',
-       //'last_name' => 'required',
-       //'email'     => 'required|email',
-       //'phone'     => 'required',
-       //'address'   => 'required',
-       //'idGroup'  => 'required|exists:grops,id'
-
-    public function group() {
-        return $this->belongsTo(group::class,'idGroup');
+    public function group()
+    {
+        return $this->belongsTo(group::class, 'idGroup');
     }
 
-    public function user(): BelongsTo {
-        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    // }
+
+
+
+
+
+
+    public function scopeOrderrBy($query)
+    {
+       return $query->orderBy('firstName');
     }
+
+    public function scopeFilters($query)
+    {
+        if ($IdGroup = request('groupID')) {
+            $query->where('idGroup', $IdGroup);
+        }
+        if ($search = request('search')) {
+            $query->where('firstName', 'LIKE', "%{$search}%");
+            $query->orwhere('firstName', 'LIKE', "%{$search}%");
+            $query->orwhere('firstName', 'LIKE', "%{$search}%");
+        }
+
+       return $query;
+    }
+
+    // public function getRouteKeyName()
+    // {
+    //     return 'id';
+    // }
+
 
 }

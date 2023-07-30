@@ -1,11 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactServer;
-
-use  App\Models\contact;
-use  App\Models\group;
-
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,25 +14,18 @@ use  App\Models\group;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-Route::get('/Contact',[ContactServer::class,'index'])->name('Contact.home');;
+//
+Route::get('Contact', [ContactServer::class, 'index'])->name('Contact.index');
+Route::get('Contact/newContact', [ContactServer::class, 'create'])->name('Contact.create');
+Route::post('Contact/newContact', [ContactServer::class, 'store'])->name('Contact.store');
+Route::get('Contact/{contact}', [ContactServer::class, 'show'])->name('Contact.show');
+Route::get('Contact/edite/{contact}', [ContactServer::class, 'edit'])->name('Contact.edit');
+Route::put('Contact/edite/{contact}', [ContactServer::class, 'update'])->name('Contact.update');
+Route::delete('Contact/Delet{contact}', [ContactServer::class, 'destroy'])->name('Contact.destroy');
 
+//Route::resource('Contact', ContactServer::class); //->only('index','create','store');
 
- Route::get('/newContact',[ContactServer::class,'PgCreateContact'])->name('Contact.Index');
-Route::post('/newContact',[ContactServer::class,'PgCreateContactInt'])->name('Contact.Insert');
-
-
-
-Route::get('/Contact{id}',[ContactServer::class,'showContact'])->name('Contact.show');
-
-
-
-
-Route::get('/editeContactID={id}',[ContactServer::class,'ShowEditeContact'])->name('Contact.showedite');
-Route::put('/editeContactID={id}',[ContactServer::class,'SbmtEditeContact'])->name('Contact.sbmtedite');
-
-
-Route::delete('/DeletContactID={id}',[ContactServer::class,'deletContact'])->name('Contact.delet');
-
-
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');

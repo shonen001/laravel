@@ -1,8 +1,10 @@
 @extends('layouts/main')
 @section('content')
-    <form  action="{{route('Contact.sbmtedite', $contact->id) }}" method="POST">
-        @method('PUT')
+
+    <form action="{{ route('Contact.update', $contact->id) }}" method="POST">
         @csrf
+        @method('PUT')
         @include('content/outsayd/edite')
     </form>
+
 @endsection
