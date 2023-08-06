@@ -50,7 +50,7 @@
                   <div class="form-group row">
                     <label for="company_id" class="col-md-3 col-form-label">Group</label>
                     <div class="col-md-9">
-                      <p class="form-control-plaintext text-muted">{{$contact->group->Group}}</p>
+                      <p class="form-control-plaintext text-muted">{{ $contact->group->Group }}</p>
                     </div>
                   </div>
                   <hr>

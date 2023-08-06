@@ -12,7 +12,7 @@
                           <div class="d-flex align-items-center">
                               <h2 class="mb-0">All Contacts</h2>
                               <div class="ml-auto">
-                                  <a href="{{ route('Contact.Index') }}" class="btn btn-success"><i
+                                  <a href="{{ route('Contact.create') }}" class="btn btn-success"><i
                                           class="fa fa-plus-circle"></i> Add New</a>
                               </div>
                           </div>
@@ -20,6 +20,7 @@
 
 
                       @include('content/filterContact')
+
 
                       <table class="table table-striped table-hover">
                           <thead>
@@ -44,15 +45,15 @@
                                   <td>{{ $contact->firstName }}</td>
                                   <td>{{ $contact->lastName }}</td>
                                   <td>{{ $contact->email }}</td>
-                                  <td>{{ $contact->group->Group }}</td>
+                                  <td>{{ $contact->group->Group}}</td>
                                   <td width="150">
-                                      <a href="{{ route('Contact.show'     ,$contact->id)}}"
+                                      <a href="{{ route('Contact.show',$contact->id)}}"
                                           class="btn btn-sm btn-circle btn-outline-info" title="Show"><i
                                               class="fa fa-eye"></i></a>
-                                      <a href="{{ route('Contact.showedite',$contact->id)}}"
+                                      <a href="{{ route('Contact.edit',$contact->id)}}"
                                           class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i
                                               class="fa fa-edit"></i></a>
-                                      <a href="{{ route('Contact.delet'    ,$contact->id)}}"
+                                      <a href="{{ route('Contact.destroy',$contact->id)}}"
                                           class="btn btn-delete btn-sm btn-circle btn-outline-danger" title="Delete"><i
                                               class="fa fa-times"></i></a>
                                   </td>
@@ -66,7 +67,7 @@
                           </form>
 
                       </table>
-                      {{ $contacts->appends(request()->only('idGroups'))->links() }}
+                            {{ $contacts->appends(request()->only('idGroups'))->links() }}
                   </div>
               </div>
           </div>

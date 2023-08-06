@@ -22,3 +22,16 @@ document.querySelectorAll('.btn-delete').forEach((button) => {
                 }
     } );
 });
+
+document.getElementById('btnCleare').addEventListener('click' , function () {
+
+    let FilterS = document.getElementById('FilteraDropBox');
+    let form = document.getElementById('search');
+    form.value=null;
+    FilterS.selectedIndex = 0;
+
+    window.location.href = window.location.href.split('?')[0];
+    
+    console.log(window.location);
+
+})
