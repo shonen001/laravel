@@ -13,18 +13,15 @@ class contact extends Model
 
     public function group()
     {
-        return $this->belongsTo(group::class, 'idGroup');
+        return $this->belongsTo(group::class, 'idGroup' , 'id');
     }
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class, 'foreign_key', 'other_key');
-    // }
 
 
-
-
-
+    public function user()
+    {
+        return $this->belongsTo(User::class,'foreign_key', 'other_key');
+    }
 
     public function scopeOrderrBy($query)
     {
